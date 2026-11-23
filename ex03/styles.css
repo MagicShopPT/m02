@@ -1,0 +1,221 @@
+/* ==========================================================================
+   EX03 — Typography (Módulo 02 - CSS3)
+   Inclui sistema de variáveis CSS (:root e var()) para tipografia e cores.
+   ========================================================================== */
+
+:root {
+    /* Paleta de cores */
+    --color-bg: #f4f7f9;
+    --color-surface: #ffffff;
+    --color-surface-alt: #eef2f6;
+    --color-code-bg: #0f172a;
+    --color-code-text: #e2e8f0;
+    --color-text: #1e293b;
+    --color-muted: #475569;
+    --color-primary: #0f4c5c;
+    --color-primary-dark: #09323d;
+    --color-accent: #c2410c;
+    --color-border: #cbd5e1;
+
+    /* Famílias tipográficas */
+    --font-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
+
+    /* Tamanhos e espaçamento de linha */
+    --text-base: 1rem;
+    --text-sm: 0.9rem;
+    --text-h1: 2rem;
+    --text-h2: 1.4rem;
+    --text-h3: 1.1rem;
+    --leading-body: 1.65;
+    --leading-heading: 1.25;
+
+    /* Pesos de fonte */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Raio de canto */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+}
+
+/* Base tipográfica do documento */
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    margin: 0;
+    padding: 24px;
+}
+
+/* Cabeçalho da documentação */
+.doc-header {
+    max-width: 860px;
+    margin: 0 auto 28px auto;
+    padding: 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 5px solid var(--color-primary);
+    border-radius: var(--radius-md);
+}
+
+.doc-kicker {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 8px 0;
+}
+
+.doc-resumo {
+    font-size: 1.05rem;
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-body);
+    color: var(--color-muted);
+    margin: 0 0 20px 0;
+}
+
+/* Navegação interna */
+.doc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+}
+
+/* Conteúdo principal e secções */
+.doc-main {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+}
+
+/* Títulos (Headings) */
+h1,
+h2,
+h3 {
+    font-family: var(--font-sans);
+    line-height: var(--leading-heading);
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: var(--text-h1);
+    font-weight: var(--weight-bold);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: var(--text-h2);
+    font-weight: var(--weight-bold);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--color-surface-alt);
+}
+
+h3 {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary-dark);
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-body);
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+ul {
+    padding-left: 22px;
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+li {
+    line-height: var(--leading-body);
+    margin-bottom: 6px;
+}
+
+/* Código inline e blocos de código */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    font-weight: var(--weight-medium);
+    background: var(--color-surface-alt);
+    color: var(--color-primary-dark);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.codigo-exemplo {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+    background: var(--color-code-bg);
+    color: var(--color-code-text);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    margin: 12px 0 0 0;
+}
+
+.codigo-exemplo code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+}
+
+/* Ligações (Links) */
+a {
+    color: var(--color-primary);
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+a:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+/* Rodapé */
+.doc-footer {
+    max-width: 860px;
+    margin: 24px auto 0 auto;
+    padding: 16px 24px;
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-align: center;
+}
+
+.doc-footer p {
+    margin: 0;
+    font-size: var(--text-sm);
+}

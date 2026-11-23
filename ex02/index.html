@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX02 — CSS Box Model</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="topo">
+        <h1>EX02 — CSS Box Model</h1>
+        <p>Coleção de cartões e comparação prática entre <code>content-box</code> e <code>border-box</code>.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-colecao">
+            <h2 id="titulo-colecao">Coleção de Cartões (<code>border-box</code>)</h2>
+
+            <div class="colecao-cartoes">
+                <article class="cartao cartao-base">
+                    <span class="etiqueta">border-box</span>
+                    <h3>Cartão Base</h3>
+                    <p>Largura declarada de <code>280px</code> com <code>padding: 20px</code> e <code>border: 3px</code>.</p>
+                    <p class="dimensao">Largura total: <strong>280px</strong></p>
+                </article>
+
+                <article class="cartao cartao-destaque">
+                    <span class="etiqueta">border-box</span>
+                    <h3>Cartão Destaque</h3>
+                    <p>Maior <code>padding</code> (<code>28px</code>) e borda mais grossa (<code>6px</code>), mantendo os mesmos <code>280px</code>.</p>
+                    <p class="dimensao">Largura total: <strong>280px</strong></p>
+                </article>
+
+                <article class="cartao cartao-compacto">
+                    <span class="etiqueta">border-box</span>
+                    <h3>Cartão Compacto</h3>
+                    <p>Espaçamento interno reduzido (<code>14px</code>) e <code>border: 2px</code>, alinhado na mesma grelha.</p>
+                    <p class="dimensao">Largura total: <strong>280px</strong></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="comparacao" aria-labelledby="titulo-comparacao">
+            <h2 id="titulo-comparacao">Bónus: Comparação <code>content-box</code> vs. <code>border-box</code></h2>
+            <p class="nota-explicativa">
+                Ambos os cartões abaixo declaram <code>width: 280px</code>, <code>padding: 20px</code> e <code>border: 5px solid</code>.
+            </p>
+
+            <div class="zona-comparacao">
+                <div class="caixa-content-box">
+                    <span class="badge-modo">content-box (padrão)</span>
+                    <h3>280px + padding + border</h3>
+                    <p>O conteúdo tem <code>280px</code>. Somam-se <code>40px</code> de padding horizontal (20px × 2) e <code>10px</code> de border horizontal (5px × 2).</p>
+                    <p class="dimensao">Largura real ocupada: <strong>330px</strong></p>
+                </div>
+
+                <div class="caixa-border-box">
+                    <span class="badge-modo">border-box</span>
+                    <h3>Largura total = 280px</h3>
+                    <p>O <code>padding</code> (20px × 2) e a <code>border</code> (5px × 2) ficam incluídos nos <code>280px</code>. O conteúdo ajusta-se para <code>230px</code>.</p>
+                    <p class="dimensao">Largura real ocupada: <strong>280px</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

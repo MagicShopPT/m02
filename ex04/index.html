@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX04 — Componentes Visuais Reutilizáveis (CSS3)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="header-top">
+            <div>
+                <span class="badge badge-primary">Módulo 02 · CSS3</span>
+                <h1>Biblioteca de Componentes Visuais</h1>
+            </div>
+            <span class="badge badge-neutral">Sem Frameworks</span>
+        </div>
+        <p class="page-subtitle">
+            Conjunto de componentes reutilizáveis (cards, buttons, alerts, badges e forms) com estilos consistentes em CSS puro.
+        </p>
+    </header>
+
+    <main class="container">
+
+        <!-- 1. BADGES -->
+        <section class="component-section" aria-labelledby="sec-badges">
+            <h2 id="sec-badges">1. Badges</h2>
+            <p class="section-desc">Emblemas compactos para indicar categorias, estados ou contadores.</p>
+            <div class="component-row">
+                <span class="badge badge-primary">Novo</span>
+                <span class="badge badge-success">Ativo</span>
+                <span class="badge badge-warning">Pendente</span>
+                <span class="badge badge-danger">Crítico</span>
+                <span class="badge badge-neutral">HTML / CSS</span>
+            </div>
+        </section>
+
+        <!-- 2. BUTTONS -->
+        <section class="component-section" aria-labelledby="sec-buttons">
+            <h2 id="sec-buttons">2. Buttons</h2>
+            <p class="section-desc">Botões com variantes semânticas, estados <code>:hover</code>, <code>:focus</code> e <code>:disabled</code>.</p>
+            <div class="component-row">
+                <button type="button" class="btn btn-primary">Guardar Alterações</button>
+                <button type="button" class="btn btn-secondary">Secundário</button>
+                <button type="button" class="btn btn-outline">Ver Detalhes</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-primary" disabled>Desativado</button>
+            </div>
+        </section>
+
+        <!-- 3. ALERTS -->
+        <section class="component-section" aria-labelledby="sec-alerts">
+            <h2 id="sec-alerts">3. Alerts</h2>
+            <p class="section-desc">Mensagens de feedback contextual para o utilizador.</p>
+            <div class="alerts-stack">
+                <div class="alert alert-info" role="status">
+                    <strong>Informação:</strong> Os componentes foram construídos com CSS3 nativo e variáveis personalizadas.
+                </div>
+                <div class="alert alert-success" role="status">
+                    <strong>Sucesso:</strong> A configuração do projeto foi guardada sem erros.
+                </div>
+                <div class="alert alert-warning" role="status">
+                    <strong>Aviso:</strong> Reveja os campos obrigatórios antes de submeter o formulário.
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Erro:</strong> Não foi possível concluir a operação. Tente novamente.
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CARDS -->
+        <section class="component-section" aria-labelledby="sec-cards">
+            <h2 id="sec-cards">4. Cards</h2>
+            <p class="section-desc">Contentores modulares reutilizáveis com cabeçalho, corpo e rodapé de ações.</p>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-header">
+                        <span class="badge badge-primary">CSS3</span>
+                        <h3>Cartão de Módulo</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Estrutura flexível com espaçamento consistente, ideal para listagens de conteúdos ou funcionalidades.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary btn-sm">Abrir</button>
+                        <button type="button" class="btn btn-outline btn-sm">Detalhes</button>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <span class="badge badge-success">Concluído</span>
+                        <h3>Revisão de Código</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Validação semântica, acessibilidade de foco por teclado e coerência visual entre componentes.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-secondary btn-sm">Relatório</button>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <span class="badge badge-warning">Em Curso</span>
+                        <h3>Layout Responsivo</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Preparação de padrões reutilizáveis que se adaptam facilmente a diferentes larguras de ecrã.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary btn-sm">Continuar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. FORMS -->
+        <section class="component-section" aria-labelledby="sec-forms">
+            <h2 id="sec-forms">5. Forms</h2>
+            <p class="section-desc">Controlos de formulário acessíveis e alinhados com o restante sistema de componentes.</p>
+
+            <form class="form-component" action="#" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="comp-nome" class="form-label">Nome completo</label>
+                        <input type="text" id="comp-nome" name="nome" class="form-control" placeholder="Ex.: Vitor Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comp-email" class="form-label">Email</label>
+                        <input type="email" id="comp-email" name="email" class="form-control" placeholder="vitor@exemplo.pt" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="comp-categoria" class="form-label">Categoria</label>
+                        <select id="comp-categoria" name="categoria" class="form-control">
+                            <option value="">Selecione uma opção...</option>
+                            <option value="duvida">Dúvida técnica</option>
+                            <option value="feedback">Feedback de projeto</option>
+                            <option value="suporte">Suporte</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comp-mensagem" class="form-label">Mensagem</label>
+                    <textarea id="comp-mensagem" name="mensagem" rows="4" class="form-control" placeholder="Escreva aqui a sua mensagem..."></textarea>
+                </div>
+
+                <div class="form-group form-check">
+                    <input type="checkbox" id="comp-aceitar" name="aceitar" class="form-check-input" required>
+                    <label for="comp-aceitar" class="form-check-label">Aceito os termos e a política de privacidade.</label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enviar Formulário</button>
+                    <button type="reset" class="btn btn-outline">Limpar</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+</body>
+</html>

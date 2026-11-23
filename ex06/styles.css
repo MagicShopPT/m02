@@ -1,0 +1,231 @@
+/* ==========================================================================
+   EX06 — Navigation Bar (Módulo 02 - CSS3 / Flexbox)
+   Inclui logo, links, botão CTA, alinhamento Flexbox e Bónus Menu Mobile.
+   ========================================================================== */
+
+:root {
+    --nav-bg: #0f3d4c;
+    --nav-bg-mobile: #0b2d38;
+    --nav-text: #f8fafc;
+    --nav-muted: #cbd5e1;
+    --accent: #ea580c;
+    --accent-hover: #c2410c;
+    --page-bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --border: #cbd5e1;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--page-bg);
+    color: #0f172a;
+    line-height: 1.6;
+}
+
+/* Contentor da Barra de Navegação */
+.navbar-wrapper {
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.15);
+}
+
+.navbar {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: var(--accent);
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+/* Menu Desktop (Links + Botão) */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: var(--nav-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.96rem;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a.active {
+    color: #ffffff;
+    border-bottom-color: var(--accent);
+    outline: none;
+}
+
+/* Botão CTA */
+.btn-cta {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 9px 18px;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+    background-color: var(--accent-hover);
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* BÓNUS: Botão Hambúrguer Mobile (oculto em desktop) */
+.menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--nav-text);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Responsividade Mobile (< 768px) */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        background-color: var(--nav-bg-mobile);
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-links li,
+    .nav-links a {
+        width: 100%;
+        display: block;
+    }
+
+    .nav-action .btn-cta {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Abre o menu quando a checkbox está ativa */
+    .menu-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+
+    /* Animação do ícone hambúrguer para X */
+    .menu-toggle:checked + .menu-btn span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .menu-btn span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-btn span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Conteúdo da página de demonstração */
+.content {
+    max-width: 960px;
+    margin: 28px auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-card,
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.hero-card h1 {
+    margin: 0 0 10px;
+    color: var(--nav-bg);
+}

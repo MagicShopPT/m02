@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX06 — Barra de Navegação Responsiva</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar-wrapper">
+        <nav class="navbar" aria-label="Menu principal">
+            <!-- Logo -->
+            <a href="#inicio" class="nav-logo">
+                <span class="logo-mark">PW</span>
+                <span class="logo-text">TorgaWeb</span>
+            </a>
+
+            <!-- Bónus: Controlo de Menu Mobile em CSS puro -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar menu">
+            <label for="menu-toggle" class="menu-btn" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Links e Botão alinhados com Flexbox -->
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#equipa">Equipa</a></li>
+                </ul>
+                <div class="nav-action">
+                    <a href="#contacto" class="btn-cta">Contactar</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="inicio" class="content">
+        <section class="hero-card">
+            <h1>EX06 — Navigation Bar Responsiva</h1>
+            <p>
+                Esta barra de navegação utiliza <strong>Flexbox</strong> para alinhar o logótipo, os links e o botão de chamada para ação, incluindo um <strong>menu mobile colapsável</strong> abaixo de <code>768px</code>.
+            </p>
+        </section>
+
+        <section id="servicos" class="info-card">
+            <h2>Secção de Teste de Navegação</h2>
+            <p>Redimensiona a janela do navegador ou usa a inspeção responsiva (DevTools) para validar o comportamento entre telemóvel, tablet e desktop.</p>
+        </section>
+    </main>
+
+</body>
+</html>

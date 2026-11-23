@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX03 — Documentação Técnica: Tipografia e Cores em CSS3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="doc-header">
+        <p class="doc-kicker">Documentação Técnica · CSS3</p>
+        <h1>Tipografia, Cores e Variáveis CSS</h1>
+        <p class="doc-resumo">
+            Guia prático de referência para estruturar a leitura, a hierarquia visual e a consistência cromática em interfaces web.
+        </p>
+        <nav aria-label="Índice da documentação" class="doc-nav">
+            <ul>
+                <li><a href="#tipografia">1. Tipografia Base</a></li>
+                <li><a href="#hierarquia">2. Títulos e Legibilidade</a></li>
+                <li><a href="#variaveis">3. Variáveis CSS (Custom Properties)</a></li>
+                <li><a href="#ligacoes">4. Ligações e Estados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="doc-main">
+        <section id="tipografia">
+            <h2>1. Tipografia Base</h2>
+            <p>
+                A definição de uma boa base tipográfica começa no elemento <code>body</code>. Combinar uma família de tipos legível (<code>font-family</code>), um tamanho de base confortável (<code>font-size</code>) e um espaçamento vertical adequado entre linhas (<code>line-height</code>) reduz a fadiga visual em textos técnicos longos.
+            </p>
+            <p>
+                Para trechos de código ou nomes de propriedades, o uso de uma família monoespaçada distingue claramente a sintaxe técnica do texto corrido.
+            </p>
+        </section>
+
+        <section id="hierarquia">
+            <h2>2. Títulos e Legibilidade</h2>
+            <h3>Escala e Peso Tipográfico</h3>
+            <p>
+                Os títulos (<code>h1</code>, <code>h2</code>, <code>h3</code>) estabelecem a estrutura hierárquica do documento. Em regra, os títulos utilizam maior <code>font-weight</code> e um <code>line-height</code> mais compacto do que os parágrafos, facilitando a leitura rápida por secções.
+            </p>
+            <pre class="codigo-exemplo"><code>body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+}</code></pre>
+        </section>
+
+        <section id="variaveis">
+            <h2>3. Variáveis CSS (Custom Properties)</h2>
+            <p>
+                As variáveis CSS (declaradas com prefixo <code>--</code>, habitualmente em <code>:root</code>) permitem centralizar cores, fontes, tamanhos e espaçamentos[cite: 13]. Ao consumir estes valores através da função <code>var()</code>, qualquer atualização num único ponto reflete-se em toda a folha de estilos[cite: 13].
+            </p>
+            <ul>
+                <li><strong>Cores:</strong> <code>--color-bg</code>, <code>--color-surface</code>, <code>--color-text</code>, <code>--color-primary</code>, <code>--color-accent</code>.</li>
+                <li><strong>Tipografia:</strong> <code>--font-sans</code>, <code>--font-mono</code>, <code>--text-base</code>, <code>--leading-body</code>.</li>
+            </ul>
+        </section>
+
+        <section id="ligacoes">
+            <h2>4. Ligações e Estados</h2>
+            <p>
+                As ligações (<code>a</code>) devem ser facilmente identificáveis e manter contraste adequado sobre o fundo. Consultar a <a href="https://developer.mozilla.org/pt-PT/docs/Web/CSS" target="_blank" rel="noopener noreferrer">documentação MDN sobre CSS</a> ou rever a <a href="#tipografia">secção de tipografia base</a> ajuda a validar boas práticas de leitura e acessibilidade.
+            </p>
+        </section>
+    </main>
+
+    <footer class="doc-footer">
+        <p>Programação WEB · Módulo 02 — CSS3 · <a href="#top" id="top">Topo da página</a></p>
+    </footer>
+
+</body>
+</html>

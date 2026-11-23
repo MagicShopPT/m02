@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX08 — Dashboard (CSS Grid)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <!-- HEADER -->
+        <header class="dash-header">
+            <div class="header-brand">
+                <span class="brand-dot" aria-hidden="true"></span>
+                <h1>Painel Académico · M02</h1>
+            </div>
+            <div class="header-meta">
+                <span>UC: Programação WEB</span>
+                <span class="user-pill">Aluno #13422</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR -->
+        <aside class="dash-sidebar" aria-label="Navegação lateral do dashboard">
+            <p class="sidebar-title">Menu</p>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="#visao-geral" class="active">Visão Geral</a></li>
+                    <li><a href="#metricas">Métricas</a></li>
+                    <li><a href="#exercicios">Exercícios</a></li>
+                    <li><a href="#entregas">Entregas</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-note">
+                <strong>Estado do Módulo 02</strong>
+                <p>8 de 9 exercícios preparados no repositório <code>m02</code>[cite: 1, 10].</p>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main id="visao-geral" class="dash-main">
+            <section id="metricas" aria-labelledby="sec-cards">
+                <h2 id="sec-cards">Resumo de Indicadores</h2>
+
+                <!-- CARDS -->
+                <div class="cards-grid">
+                    <article class="metric-card">
+                        <span class="card-label">Exercícios Concluídos</span>
+                        <p class="card-value">8 / 9</p>
+                        <span class="card-trend positive">88,9% do módulo</span>
+                    </article>
+
+                    <article class="metric-card">
+                        <span class="card-label">Pontuação Acumulada</span>
+                        <p class="card-value">14 / 18 pts</p>
+                        <span class="card-trend positive">Acima do mínimo (10 pts)</span>
+                    </article>
+
+                    <article class="metric-card">
+                        <span class="card-label">Bónus Implementados</span>
+                        <p class="card-value">6</p>
+                        <span class="card-trend neutral">Seletores, Box, Vars, Nav, Grid, Mobile[cite: 3, 4, 6, 8, 9]</span>
+                    </article>
+
+                    <article class="metric-card">
+                        <span class="card-label">Prazo Aconselhável</span>
+                        <p class="card-value">09/10/2026</p>
+                        <span class="card-trend neutral">23h59m59s[cite: 1]</span>
+                    </article>
+                </div>
+            </section>
+
+            <!-- TABLE -->
+            <section id="exercicios" class="table-section" aria-labelledby="sec-table">
+                <div class="section-heading">
+                    <h2 id="sec-table">Registo de Exercícios</h2>
+                    <span class="table-caption">Módulo 02 — CSS3, Flexbox e Grid[cite: 2]</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Exercício</th>
+                                <th>Nível</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EX01</td>
+                                <td>Selectors</td>
+                                <td>L1[cite: 3]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX02</td>
+                                <td>Box Model</td>
+                                <td>L1[cite: 3]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX03</td>
+                                <td>Typography</td>
+                                <td>L2[cite: 4]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX04</td>
+                                <td>Components</td>
+                                <td>L2[cite: 5]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX05</td>
+                                <td>Flexbox Playground</td>
+                                <td>L1[cite: 6]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX06</td>
+                                <td>Navigation Bar</td>
+                                <td>L2[cite: 7]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX07</td>
+                                <td>Photo Gallery</td>
+                                <td>L2[cite: 8]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX08</td>
+                                <td>Dashboard</td>
+                                <td>L3[cite: 9]</td>
+                                <td><span class="status-badge done">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>EX09</td>
+                                <td>Responsive Challenge</td>
+                                <td>L4[cite: 10]</td>
+                                <td><span class="status-badge pending">Seguinte</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="entregas" class="dash-footer">
+            <p>Instituto Superior Miguel Torga · Licenciatura de Informática · Módulo 02 (CSS Grid)[cite: 1, 9, 13]</p>
+            <p>Vitor Silva (#13422) — GitHub: MagicShopPT[cite: 1]</p>
+        </footer>
+    </div>
+
+</body>
+</html>

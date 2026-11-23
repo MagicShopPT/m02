@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX05 — Flexbox Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- BÓNUS: Barra de navegação construída com Flexbox -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Navegação principal">
+            <a href="#top" class="brand">FlexLab · M02</a>
+            <ul class="nav-links">
+                <li><a href="#layout-1">Direção</a></li>
+                <li><a href="#layout-2">Justify</a></li>
+                <li><a href="#layout-3">Align &amp; Gap</a></li>
+                <li><a href="#layout-4">Wrap</a></li>
+                <li><a href="#layout-5">Grow</a></li>
+                <li><a href="#layout-6">Shrink</a></li>
+            </ul>
+            <a href="#layout-1" class="nav-cta">Explorar</a>
+        </nav>
+    </header>
+
+    <main id="top" class="playground">
+        <section class="intro-box">
+            <h1>EX05 — Flexbox Playground</h1>
+            <p>
+                Demonstração prática de <strong>6 layouts Flexbox</strong> explorando <code>flex-direction</code>,
+                <code>justify-content</code>, <code>align-items</code>, <code>flex-wrap</code>, <code>gap</code>,
+                <code>flex-grow</code> e <code>flex-shrink</code>, além da barra de navegação no topo[cite: 6, 12].
+            </p>
+        </section>
+
+        <!-- Layout 1: flex-direction -->
+        <section id="layout-1" class="demo-card">
+            <h2>Layout 1 — <code>flex-direction: column-reverse</code> e <code>gap</code></h2>
+            <p class="demo-desc">Inverte a ordem visual ao longo do eixo vertical sem alterar a ordem no HTML[cite: 6, 12].</p>
+            <div class="flex-demo demo-direction">
+                <div class="flex-box">Item 1</div>
+                <div class="flex-box">Item 2</div>
+                <div class="flex-box">Item 3</div>
+            </div>
+        </section>
+
+        <!-- Layout 2: justify-content -->
+        <section id="layout-2" class="demo-card">
+            <h2>Layout 2 — <code>justify-content: space-between</code> e <code>gap</code></h2>
+            <p class="demo-desc">Distribui os itens ao longo do eixo principal com espaço uniforme entre eles[cite: 6, 12].</p>
+            <div class="flex-demo demo-justify">
+                <div class="flex-box">Início</div>
+                <div class="flex-box">Centro</div>
+                <div class="flex-box">Fim</div>
+            </div>
+        </section>
+
+        <!-- Layout 3: align-items -->
+        <section id="layout-3" class="demo-card">
+            <h2>Layout 3 — <code>align-items: center</code>, <code>justify-content: center</code> e <code>gap</code></h2>
+            <p class="demo-desc">Alinha itens de alturas diferentes ao centro do eixo secundário num contentor de altura fixa[cite: 6, 12].</p>
+            <div class="flex-demo demo-align">
+                <div class="flex-box box-curta">Curto</div>
+                <div class="flex-box box-alta">Mais Alto<br>2 linhas</div>
+                <div class="flex-box box-media">Médio</div>
+            </div>
+        </section>
+
+        <!-- Layout 4: flex-wrap -->
+        <section id="layout-4" class="demo-card">
+            <h2>Layout 4 — <code>flex-wrap: wrap</code> e <code>gap</code></h2>
+            <p class="demo-desc">Permite que os itens passem para a linha seguinte quando não cabem na largura disponível[cite: 6, 12].</p>
+            <div class="flex-demo demo-wrap">
+                <div class="flex-box box-fixa">Card 1</div>
+                <div class="flex-box box-fixa">Card 2</div>
+                <div class="flex-box box-fixa">Card 3</div>
+                <div class="flex-box box-fixa">Card 4</div>
+                <div class="flex-box box-fixa">Card 5</div>
+                <div class="flex-box box-fixa">Card 6</div>
+            </div>
+        </section>
+
+        <!-- Layout 5: flex-grow -->
+        <section id="layout-5" class="demo-card">
+            <h2>Layout 5 — <code>flex-grow</code> Proporcional</h2>
+            <p class="demo-desc">O item central cresce mais (<code>flex-grow: 2</code>) do que os laterais (<code>flex-grow: 1</code>) para ocupar o espaço livre[cite: 6, 12].</p>
+            <div class="flex-demo demo-grow">
+                <div class="flex-box grow-1">Grow 1</div>
+                <div class="flex-box grow-2">Grow 2 (Principal)</div>
+                <div class="flex-box grow-1">Grow 1</div>
+            </div>
+        </section>
+
+        <!-- Layout 6: flex-shrink -->
+        <section id="layout-6" class="demo-card">
+            <h2>Layout 6 — <code>flex-shrink</code> (<code>0</code> vs. <code>2</code>)</h2>
+            <p class="demo-desc">Em ecrãs estreitos, o item com <code>flex-shrink: 0</code> mantém a base de <code>180px</code> enquanto os restantes encolhem mais depressa[cite: 6, 12].</p>
+            <div class="flex-demo demo-shrink">
+                <div class="flex-box shrink-fixo">Shrink 0 (180px)</div>
+                <div class="flex-box shrink-rapido">Shrink 2</div>
+                <div class="flex-box shrink-normal">Shrink 1</div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+/* ==========================================================================
+   EX05 — Flexbox Playground (Módulo 02 - CSS3)
+   Explora: flex-direction, justify-content, align-items, flex-wrap,
+   gap, flex-grow e flex-shrink + Bónus Barra de Navegação Flexbox.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   BÓNUS: Barra de Navegação com Flexbox
+   -------------------------------------------------------------------------- */
+.site-header {
+    background-color: #0f3d4c;
+    color: #ffffff;
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+}
+
+.nav-links a {
+    color: #e0f2fe;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: #fb923c;
+    outline: none;
+}
+
+.nav-cta {
+    background-color: #ea580c;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+    background-color: #c2410c;
+    outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Estrutura do Playground
+   -------------------------------------------------------------------------- */
+.playground {
+    max-width: 1040px;
+    margin: 24px auto 48px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.intro-box,
+.demo-card {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 20px 24px;
+}
+
+.intro-box h1 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+    color: #0f3d4c;
+}
+
+.intro-box p,
+.demo-desc {
+    margin: 0 0 14px;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+.demo-card h2 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    color: #0f3d4c;
+}
+
+code {
+    background-color: #e2e8f0;
+    color: #0f3d4c;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.88em;
+}
+
+/* Contentor base e itens flexíveis */
+.flex-demo {
+    background-color: #fff7ed;
+    border: 2px solid #f97316;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.flex-box {
+    background-color: #0284c7;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Layout 1: flex-direction */
+.demo-direction {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+/* Layout 2: justify-content */
+.demo-justify {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Layout 3: align-items */
+.demo-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.box-curta {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.box-alta {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.box-media {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+/* Layout 4: flex-wrap */
+.demo-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.box-fixa {
+    flex: 0 0 150px;
+}
+
+/* Layout 5: flex-grow */
+.demo-grow {
+    display: flex;
+    gap: 12px;
+}
+
+.grow-1 {
+    flex-grow: 1;
+    flex-basis: 80px;
+}
+
+.grow-2 {
+    flex-grow: 2;
+    flex-basis: 80px;
+    background-color: #0f3d4c;
+}
+
+/* Layout 6: flex-shrink */
+.demo-shrink {
+    display: flex;
+    gap: 12px;
+}
+
+.shrink-fixo {
+    flex-basis: 180px;
+    flex-shrink: 0;
+    background-color: #0f3d4c;
+}
+
+.shrink-rapido {
+    flex-basis: 240px;
+    flex-shrink: 2;
+}
+
+.shrink-normal {
+    flex-basis: 240px;
+    flex-shrink: 1;
+}

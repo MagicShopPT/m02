@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX07 — Photo Gallery (CSS Grid)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="gallery-header">
+        <h1>EX07 — Photo Gallery</h1>
+        <p>Galeria fotográfica construída com <strong>CSS Grid</strong>, múltiplas colunas, <code>gap</code>, tamanhos variados e <code>grid-template-areas</code>[cite: 8, 13].</p>
+    </header>
+
+    <main class="gallery-container">
+
+        <!-- Galeria Principal: Múltiplas colunas, gap, imagens responsivas e tamanhos variados -->
+        <section class="gallery-section" aria-labelledby="sec-galeria">
+            <h2 id="sec-galeria">1. Galeria em Grelha (Tamanhos Variados)</h2>
+
+            <div class="photo-grid">
+                <figure class="photo-item span-2">
+                    <img src="https://placehold.co/900x500/0f3d4c/ffffff?text=Paisagem+Principal+(Span+2)" alt="Vista panorâmica de paisagem em destaque">
+                    <figcaption>Paisagem em Destaque (2 colunas)</figcaption>
+                </figure>
+
+                <figure class="photo-item">
+                    <img src="https://placehold.co/600x450/0284c7/ffffff?text=Arquitetura" alt="Fachada geométrica de edifício moderno">
+                    <figcaption>Arquitetura Urbana</figcaption>
+                </figure>
+
+                <figure class="photo-item">
+                    <img src="https://placehold.co/600x450/ea580c/ffffff?text=Natureza" alt="Trilho florestal com luz natural">
+                    <figcaption>Trilho Natural</figcaption>
+                </figure>
+
+                <figure class="photo-item">
+                    <img src="https://placehold.co/600x450/15803d/ffffff?text=Botanica" alt="Folhagem verde em detalhe">
+                    <figcaption>Detalhes Botânicos</figcaption>
+                </figure>
+
+                <figure class="photo-item span-2">
+                    <img src="https://placehold.co/900x450/1e293b/f8fafc?text=Estudio+Noturno+(Span+2)" alt="Cenário de estúdio com iluminação noturna">
+                    <figcaption>Iluminação Noturna (2 colunas)</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Bónus: Composição fotográfica com grid-template-areas -->
+        <section class="gallery-section" aria-labelledby="sec-areas">
+            <h2 id="sec-areas">2. Bónus — Composição com <code>grid-template-areas</code></h2>
+            <p class="section-note">Regiões nomeadas definidas com <code>grid-template-areas</code> e posicionadas via <code>grid-area</code>[cite: 8, 13].</p>
+
+            <div class="photo-areas-grid">
+                <figure class="area-item area-hero">
+                    <img src="https://placehold.co/900x600/0f3d4c/ffffff?text=Area:+Hero" alt="Fotografia principal na área hero">
+                    <figcaption>Área: hero</figcaption>
+                </figure>
+
+                <figure class="area-item area-side-top">
+                    <img src="https://placehold.co/500x300/0369a1/ffffff?text=Area:+Side+Top" alt="Fotografia secundária superior">
+                    <figcaption>Área: side-top</figcaption>
+                </figure>
+
+                <figure class="area-item area-side-bottom">
+                    <img src="https://placehold.co/500x300/c2410c/ffffff?text=Area:+Side+Bottom" alt="Fotografia secundária inferior">
+                    <figcaption>Área: side-bottom</figcaption>
+                </figure>
+
+                <figure class="area-item area-strip-1">
+                    <img src="https://placehold.co/450x280/334155/ffffff?text=Strip+1" alt="Fotografia da faixa inferior esquerda">
+                    <figcaption>Área: strip-1</figcaption>
+                </figure>
+
+                <figure class="area-item area-strip-2">
+                    <img src="https://placehold.co/450x280/0f766e/ffffff?text=Strip+2" alt="Fotografia da faixa inferior central">
+                    <figcaption>Área: strip-2</figcaption>
+                </figure>
+
+                <figure class="area-item area-strip-3">
+                    <img src="https://placehold.co/450x280/4338ca/ffffff?text=Strip+3" alt="Fotografia da faixa inferior direita">
+                    <figcaption>Área: strip-3</figcaption>
+                </figure>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

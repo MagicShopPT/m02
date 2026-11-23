@@ -1,0 +1,504 @@
+/* ==========================================================================
+   EX09 — Responsive Challenge (Módulo 02 - CSS3)
+   Abordagem Mobile First (320px -> 768px -> 1024px -> 1440px),
+   sem frameworks, sem scroll horizontal e com Bónus Modo Escuro[cite: 10, 13].
+   ========================================================================== */
+
+:root {
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-alt: #eef2f6;
+    --bg-hero: #0f3d4c;
+    --bg-hero-panel: rgba(255, 255, 255, 0.1);
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-hero: #ffffff;
+    --text-hero-muted: #e2e8f0;
+    --accent: #ea580c;
+    --accent-hover: #c2410c;
+    --border-color: #cbd5e1;
+    --container-max: 1120px;
+    --radius: 10px;
+}
+
+/* Modo escuro automático se o sistema estiver em dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-page: #0b1120;
+        --bg-surface: #111827;
+        --bg-surface-alt: #1e293b;
+        --bg-hero: #092530;
+        --bg-hero-panel: rgba(255, 255, 255, 0.06);
+        --text-main: #f1f5f9;
+        --text-muted: #94a3b8;
+        --text-hero: #ffffff;
+        --text-hero-muted: #cbd5e1;
+        --accent: #f97316;
+        --accent-hover: #ea580c;
+        --border-color: #334155;
+    }
+}
+
+/* Alternância manual via #theme-toggle (CSS puro) */
+.theme-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#theme-toggle:checked ~ .page-wrapper {
+    --bg-page: #0b1120;
+    --bg-surface: #111827;
+    --bg-surface-alt: #1e293b;
+    --bg-hero: #092530;
+    --bg-hero-panel: rgba(255, 255, 255, 0.06);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-hero: #ffffff;
+    --text-hero-muted: #cbd5e1;
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    --border-color: #334155;
+}
+
+.mode-dark {
+    display: none;
+}
+
+#theme-toggle:checked ~ .page-wrapper .mode-light {
+    display: none;
+}
+
+#theme-toggle:checked ~ .page-wrapper .mode-dark {
+    display: inline;
+}
+
+/* Prevenção global de scroll horizontal */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BASE MOBILE FIRST (320px+)
+   -------------------------------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.site-header {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.brand-badge {
+    background-color: var(--accent);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: var(--accent);
+    outline: none;
+}
+
+.theme-btn {
+    background-color: var(--bg-surface-alt);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.theme-btn:hover {
+    border-color: var(--accent);
+}
+
+/* Hero */
+.hero {
+    background-color: var(--bg-hero);
+    color: var(--text-hero);
+    padding: 36px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fdba74;
+}
+
+.hero h1 {
+    margin: 0 0 12px;
+    font-size: 1.55rem;
+    line-height: 1.22;
+}
+
+.hero-text {
+    margin: 0 0 20px;
+    color: var(--text-hero-muted);
+    font-size: 0.95rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background-color: var(--accent-hover);
+    outline: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background-color: rgba(255, 255, 255, 0.12);
+    outline: none;
+}
+
+.hero-panel {
+    background-color: var(--bg-hero-panel);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+
+.hero-panel h2 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}
+
+.breakpoint-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: var(--text-hero-muted);
+}
+
+/* Secções */
+.section {
+    padding: 36px 0;
+}
+
+.section-alt {
+    background-color: var(--bg-surface-alt);
+}
+
+.section-title {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.section-lead {
+    margin: 0 0 22px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.features-grid,
+.steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.feature-card,
+.step-item {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 18px;
+}
+
+.feature-card h3,
+.step-item h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+}
+
+.feature-card p,
+.step-item p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.step-num {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+/* Formulário de contacto */
+.cta-box {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.cta-box h2 {
+    margin: 0 0 6px;
+    font-size: 1.25rem;
+}
+
+.cta-box p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lead-form input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.lead-form input[type="email"]:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    padding: 20px 0;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-inner p {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 768px (Tablet)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .header-inner {
+        padding: 14px 24px;
+    }
+
+    .container {
+        padding: 0 24px;
+    }
+
+    .hero {
+        padding: 48px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .features-grid,
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .lead-form {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .lead-form input[type="email"] {
+        flex: 1 1 auto;
+    }
+
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 1024px (Desktop / Portátil)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1.5fr 1fr;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .features-grid,
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cta-box {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 28px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 1440px (Ecrã Largo)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+    :root {
+        --container-max: 1280px;
+    }
+
+    .hero {
+        padding: 72px 0;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+}

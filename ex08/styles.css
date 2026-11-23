@@ -1,0 +1,362 @@
+/* ==========================================================================
+   EX08 — Dashboard (Módulo 02 - CSS3 / Grid)
+   Estrutura principal em CSS Grid (Header, Sidebar, Main, Cards, Table, Footer)
+   com Bónus de versão mobile responsiva[cite: 9, 13].
+   ========================================================================== */
+
+:root {
+    --bg-canvas: #eef2f6;
+    --bg-panel: #ffffff;
+    --bg-sidebar: #0f2936;
+    --bg-sidebar-hover: #183e52;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-on-dark: #f8fafc;
+    --text-on-dark-muted: #cbd5e1;
+    --accent: #ea580c;
+    --accent-soft: #ffedd5;
+    --success-text: #15803d;
+    --success-bg: #dcfce7;
+    --pending-text: #b45309;
+    --pending-bg: #fef3c7;
+    --border: #cbd5e1;
+    --gap-main: 20px;
+    --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   ESTRUTURA PRINCIPAL EM CSS GRID (Desktop)
+   -------------------------------------------------------------------------- */
+.dashboard-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    gap: var(--gap-main);
+    padding: var(--gap-main);
+}
+
+/* HEADER */
+.dash-header {
+    grid-area: header;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 16px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent);
+}
+
+.dash-header h1 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: var(--bg-sidebar);
+}
+
+.header-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.user-pill {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+}
+
+/* SIDEBAR */
+.dash-sidebar {
+    grid-area: sidebar;
+    background-color: var(--bg-sidebar);
+    color: var(--text-on-dark);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-title {
+    margin: 0;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-on-dark-muted);
+    padding: 0 10px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-on-dark-muted);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus-visible,
+.sidebar-nav a.active {
+    background-color: var(--bg-sidebar-hover);
+    color: #ffffff;
+    outline: none;
+}
+
+.sidebar-note {
+    margin-top: auto;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.85rem;
+}
+
+.sidebar-note p {
+    margin: 6px 0 0;
+    color: var(--text-on-dark-muted);
+}
+
+.sidebar-note code {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+
+/* MAIN */
+.dash-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.dash-main h2 {
+    margin: 0 0 14px;
+    font-size: 1.15rem;
+    color: var(--bg-sidebar);
+}
+
+/* CARDS */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+}
+
+.metric-card {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.card-value {
+    margin: 0;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--bg-sidebar);
+    line-height: 1.2;
+}
+
+.card-trend {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-trend.positive {
+    color: var(--success-text);
+}
+
+.card-trend.neutral {
+    color: var(--text-secondary);
+}
+
+/* TABLE */
+.table-section {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+.section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    margin: 0;
+}
+
+.table-caption {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 11px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table th {
+    background-color: #f8fafc;
+    color: var(--bg-sidebar);
+    font-weight: 700;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.status-badge.done {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+.status-badge.pending {
+    background-color: var(--pending-bg);
+    color: var(--pending-text);
+}
+
+/* FOOTER */
+.dash-footer {
+    grid-area: footer;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.dash-footer p {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BÓNUS: VERSÃO MOBILE RESPONSIVA
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        padding: 12px;
+        gap: 14px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .sidebar-nav a {
+        padding: 8px 10px;
+        font-size: 0.88rem;
+    }
+
+    .sidebar-note {
+        margin-top: 0;
+    }
+
+    .dash-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
